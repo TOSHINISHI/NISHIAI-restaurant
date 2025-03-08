@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KIZUNA | 和と洋の融合する美食空間</title>
+    <style>
+        /* 全体のスタイル */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Serif JP', 'Garamond', serif;
+        }
+        
+        body {
+            background-color: #0a0a0a;
+            color: #f5f5f5;
+            line-height: 1.8;
+        }
+        
+        /* ヘッダー */
+        header {
+            background-color: rgba(10, 10, 10, 0.95);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 26px;
+            font-weight: 300;
+            letter-spacing: 4px;
+            color: #f5f5f5;
+        }
+        
+        .logo span {
+            color: #c8a97e;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 40px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #f5f5f5;
+            font-weight: 300;
+            font-size: 14px;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -5px;
+            left: 0;
+            background-color: #c8a97e;
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #c8a97e;
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        /* ヒーローセクション */
+        .hero {
+            height: 100vh;
+            background-color: #0a0a0a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+        }
+        
+        .hero-content {
+            position: absolute;
+            text-align: center;
+            color: #f5f5f5;
+            max-width: 800px;
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.6); /* 半透明の黒い背景 */
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-content h1 {
+            font-size: 52px;
+            font-weight: 700; /* 太字 */
+            margin-bottom: 25px;
+            letter-spacing: 6px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* テキストシャドウ追加 */
+        }
+        
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            letter-spacing: 1.5px;
+            line-height: 1.8;
+            font-weight: 400; /* やや太めに */
+            color: #ffffff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* テキストシャドウ追加 */
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            background-color: #c8a97e;
+            color: #ffffff;
+            text-decoration: none;
+            border: 1px solid #c8a97e;
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn:hover {
+            background-color: #d4b78c;
+            border-color: #d4b78c;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* セクション共通 */
+        section {
+            padding: 100px 5%;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 34px;
+            color: #f5f5f5;
+            margin-bottom: 25px;
+            font-weight: 300;
+            letter-spacing: 4px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 1px;
+            background-color: #c8a97e;
+            bottom: -15px;
+            left: 0;
+        }
+        
+        /* コンセプトセクション */
+        .concept {
+            background-color: #0f0f0f;
+        }
+        
+        .concept-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .concept-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .concept-text p {
+            font-size: 15px;
+            line-height: 2;
+            margin-bottom: 25px;
+            color: #e0e0e0;
+        }
+        
+        .concept-image {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+        }
+        
+        .concept-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* シェフセクション */
+        .chef {
+            background-color: #0a0a0a;
+        }
+        
+        .chef-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .chef-image {
+            flex: 1;
+            min-width: 300px;
+            height: 500px;
+        }
+        
+        .chef-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .chef-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .chef-info h3 {
+            font-size: 28px;
+            color: #f5f5f5;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
+        .chef-info h4 {
+            font-size: 18px;
+            color: #c8a97e;
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .chef-info p {
+            font-size: 15px;
+            line-height: 2;
+            margin-bottom: 20px;
+            color: #e0e0e0;
+        }
+        
+        /* メニューセクション */
+        .menu {
+            background-color: #0f0f0f;
+        }
+        
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        
+        .menu-tab {
+            margin: 0 20px;
+            padding: 10px 25px;
+            cursor: pointer;
+            position: relative;
+            font-size: 15px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #f5f5f5;
+        }
+        
+        .menu-tab.active {
+            color: #c8a97e;
+        }
+        
+        .menu-tab::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #c8a97e;
+            transition: width 0.3s;
+        }
+        
+        .menu-tab.active::after,
+        .menu-tab:hover::after {
+            width: 80%;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .menu-category {
+            margin-bottom: 40px;
+        }
+        
+        .menu-category h3 {
+            font-size: 24px;
+            color: #c8a97e;
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(200, 169, 126, 0.3);
+        }
+        
+        .menu-item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .menu-item-name {
+            font-size: 18px;
+            color: #f5f5f5;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .menu-item-price {
+            font-size: 18px;
+            color: #c8a97e;
+            font-weight: 300;
+        }
+        
+        .menu-item-description {
+            font-size: 14px;
+            color: #cccccc;
+            line-height: 1.6;
+        }
+        
+        /* ギャラリーセクション */
+        .gallery {
+            background-color: #0a0a0a;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .gallery-item {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.05);
+        }
+        
+        /* アクセスセクション */
+        .access {
+            background-color: #0f0f0f;
+        }
+        
+        .access-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .access-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .access-detail {
+            margin-bottom: 30px;
+        }
+        
+        .access-detail h3 {
+            font-size: 18px;
+            color: #c8a97e;
+            margin-bottom: 15px;
+            font-weight: 300;
+            letter-spacing: 1.5px;
+        }
+        
+        .access-detail p {
+            font-size: 15px;
+            color: #e0e0e0;
+            line-height: 1.8;
+        }
+        
+        .map {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+        }
+        
+        /* 予約セクション */
+        .reservation {
+            background-color: #0a0a0a;
+        }
+        
+        .reservation-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .reservation-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .reservation-info p {
+            font-size: 15px;
+            line-height: 2;
+            margin-bottom: 25px;
+            color: #e0e0e0;
+        }
+        
+        .reservation-details {
+            margin-top: 40px;
+        }
+        
+        .reservation-detail {
+            margin-bottom: 20px;
+        }
+        
+        .reservation-detail h4 {
+            font-size: 16px;
+            color: #c8a97e;
+            margin-bottom: 10px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .reservation-detail p {
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+        
+        .reservation-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #e0e0e0;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #f5f5f5;
+            font-size: 14px;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #c8a97e;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+            min-width: 140px;
+        }
+        
+        .submit-btn {
+            display: inline-block;
+            padding: 14px 35px;
+            background-color: #c8a97e;
+            color: #0a0a0a;
+            border: none;
+            font-weight: 400;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #b69263;
+        }
+        
+        /* フッター */
+        footer {
+            background-color: #070707;
+            color: #f5f5f5;
+            padding: 60px 5% 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+            gap: 30px;
+        }
+        
+        .footer-logo {
+            font-size: 22px;
+            font-weight: 300;
+            letter-spacing: 3px;
+        }
+        
+        .footer-logo span {
+            color: #c8a97e;
+        }
+        
+        .footer-nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        .footer-nav ul li a {
+            color: #cccccc;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.3s;
+        }
+        
+        .footer-nav ul li a:hover {
+            color: #c8a97e;
+        }
+        
+        .footer-middle {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+            padding-bottom: 50px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            gap: 30px;
+        }
+        
+        .footer-info {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-info h4 {
+            font-size: 15px;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #f5f5f5;
+        }
+        
+        .footer-info p {
+            font-size: 13px;
+            color: #cccccc;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        
+        .social-icons {
+            display: flex;
+            margin-top: 25px;
+            gap: 15px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #666;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            color: #cccccc;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .social-icon:hover {
+            background-color: #c8a97e;
+            border-color: #c8a97e;
+            color: #0a0a0a;
+        }
+        
+        .copyright {
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            nav ul li {
+                margin: 0;
+            }
+            
+            .hero-content h1 {
+                font-size: 32px;
+            }
+            
+            section {
+                padding: 60px 5%;
+            }
+            
+            .section-title {
+                margin-bottom: 40px;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .footer-top, .footer-middle {
+                justify-content: center;
+                text-align: center;
+            }
+            
+            .footer-nav ul {
+                justify-content: center;
+            }
+            
+            .section-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <div class="header-container">
+            <div class="logo">NISHIAI <span>RESTAURANT</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#concept">コンセプト</a></li>
+                    <li><a href="#chef">シェフ</a></li>
+                    <li><a href="#menu">メニュー</a></li>
+                    <li><a href="#gallery">ギャラリー</a></li>
+                    <li><a href="#access">アクセス</a></li>
+                    <li><a href="#reservation">ご予約</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <img src="images/hero-image.jpg" alt="特別な料理の写真" class="hero-image">
+        <div class="hero-content">
+            <h1>和と洋の融合するAI空間</h1>
+            <p>伝統と革新が織りなす、唯一無二の味わい。季節の素材を活かした至高の一皿で、特別なひとときをお過ごしください。</p>
+            <a href="#reservation" class="btn">ご予約</a>
+        </div>
+    </section>
+    
+    <!-- コンセプトセクション -->
+    <section class="concept" id="concept">
+        <div class="container">
+            <div class="section-title">
+                <h2>CONCEPT</h2>
+            </div>
+            <div class="concept-content">
+                <div class="concept-text">
+                    <p>KIZUNA RESTAURANTは、日本の伝統と西洋の技術が融合した、新しい食体験を追求するレストランです。</p>
+                    <p>四季折々の旬の食材を厳選し、素材本来の味わいを大切にしながらも、独創的な調理法で新たな魅力を引き出します。日本の繊細さと西洋の大胆さが溶け合う料理の数々は、五感すべてを満たす体験へとお誘いします。</p>
+                    <p>料理だけでなく、空間や器、サービスに至るまで、細部にこだわりぬいた「おもてなし」。特別な日の記念から、ビジネスでの会食まで、様々なシーンでご利用いただける洗練された空間です。</p>
+                </div>
+                <div class="concept-image">
+                    <img src="images/concept-img.jpg" alt="料理の一例" class="concept-img">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- シェフセクション -->
+    <section class="chef" id="chef">
+        <div class="container">
+            <div class="section-title">
+                <h2>CHEF</h2>
+            </div>
+            <div class="chef-content">
+                <div class="chef-image">
+                    <img src="images/chef-img.jpg" alt="総料理長の写真" class="chef-img">
+                </div>
+                <div class="chef-info">
+                    <h3>鈴木 啓太</h3>
+                    <h4>総料理長 / Executive Chef</h4>
+                    <p>東京の料亭で10年間修業した後、渡仏。パリの三ツ星レストランで5年間研鑽を積み、帰国後は東京の有名フレンチレストランの料理長を務める。</p>
+                    <p>和食の繊細さとフランス料理の技術を融合した独自のスタイルで、多くの食通を魅了してきた鈴木シェフ。伝統を重んじながらも、常に新しい挑戦を続ける姿勢が、彼の料理に深みと新鮮さをもたらしています。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- メニューセクション -->
+    <section class="menu" id="menu">
+        <div class="container">
+            <div class="section-title">
+                <h2>MENU</h2>
+            </div>
+            <div class="menu-tabs">
+                <div class="menu-tab active">ディナー</div>
+                <div class="menu-tab">ランチ</div>
+                <div class="menu-tab">ワイン</div>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-category">
+                    <h3>前菜</h3>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <div class="menu-item-name">季節野菜のテリーヌ 柚子の香り</div>
+                            <div class="menu-item-price">¥2,400</div>
+                        </div>
+                        <div class="menu-item-description">
+                            契約農家から届く新鮮な季節野菜を層状に重ね、柚子の爽やかな香りで仕上げたテリーヌ。彩り豊かな一皿です。
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <div class="menu-item-name">フォアグラのポワレ 無花果のコンポート添え</div>
+                            <div class="menu-item-price">¥3,200</div>
+                        </div>
+                        <div class="menu-item-description">
+                            厳選したフォアグラを香ばしく焼き上げ、自家製の無花果コンポートと合わせました。
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-category">
+                    <h3>メイン</h3>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <div class="menu-item-name">黒毛和牛フィレ肉の炭火焼き 赤ワインと山椒のソース</div>
+                            <div class="menu-item-price">¥6,800</div>
+                        </div>
+                        <div class="menu-item-description">
+                            A5ランクの黒毛和牛フィレを炭火で丁寧に焼き上げ、赤ワインと山椒の香りが広がるソースでお楽しみください。
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <div class="menu-item-name">三陸産鮮魚のポワレ 松茸と白ワインのエチュベ</div>
+                            <div class="menu-item-price">¥4,200</div>
+                        </div>
+                        <div class="menu-item-description">
+                            三陸から届く新鮮な魚をポワレにし、香り高い松茸と白ワインでエチュベした一品。
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-category">
+                    <h3>デザート</h3>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <div class="menu-item-name">抹茶のパンナコッタ 黒蜜きな粉添え</div>
+                            <div class="menu-item-price">¥1,600</div>
+                        </div>
+                        <div class="menu-item-description">
+                            宇治の抹茶を使用したなめらかなパンナコッタに、沖縄産の黒蜜ときな粉をかけた和洋の融合デザート。
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <div class="menu-item-name">洋梨のタルトタタン バニラアイス添え</div>
+                            <div class="menu-item-price">¥1,800</div>
+                        </div>
+                        <div class="menu-item-description">
+                            香り高い洋梨をキャラメリゼし、さくさくのパイ生地と合わせた逆さタルト。自家製バニラアイスとともに。
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-category">
+                    <h3>コース</h3>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <div class="menu-item-name">絆コース</div>
+                            <div class="menu-item-price">¥12,000</div>
+                        </div>
+                        <div class="menu-item-description">
+                            シェフ厳選の季節の前菜、スープ、魚料理、肉料理、デザートをお楽しみいただける、当店の定番コース。
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-item-header">
+                            <div class="menu-item-name">シェフスペシャルコース</div>
+                            <div class="menu-item-price">¥18,000</div>
+                        </div>
+                        <div class="menu-item-description">
+                            その日に仕入れた最高の食材を使用した、シェフ渾身のスペシャルコース。完全予約制の特別なメニュー。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ギャラリーセクション -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>GALLERY</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/gallery-img1.png" alt="料理の写真1" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery-img2.png" alt="店内の様子" class="gallery-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/gallery-img3.png" alt="料理の写真2" class="gallery-img">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="access" id="access">
+        <div class="container">
+            <div class="section-title">
+                <h2>ACCESS</h2>
+            </div>
+            <div class="access-content">
+                <div class="access-info">
+                    <div class="access-detail">
+                        <h3>住所</h3>
+                        <p>〒104-0061<br>東京都中央区銀座6丁目X-X<br>銀座プレミアビル 8F</p>
+                    </div>
+                    <div class="access-detail">
+                        <h3>営業時間</h3>
+                        <p>ランチ: 11:30 - 15:00 (L.O. 14:00)<br>ディナー: 17:30 - 23:00 (L.O. 21:30)</p>
+                    </div>
+                    <div class="access-detail">
+                        <h3>アクセス</h3>
+                        <p>東京メトロ銀座線・丸ノ内線・日比谷線「銀座駅」A5出口より徒歩2分</p>
+                        <p>JR「有楽町駅」銀座口より徒歩7分</p>
+                    </div>
+                    <div class="access-detail">
+                        <h3>お問い合わせ</h3>
+                        <p>TEL: 03-XXXX-XXXX<br>E-mail: info@kizuna-restaurant.jp</p>
+                    </div>
+                </div>
+                <div class="map">
+                    <!-- Google Maps埋め込み -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.3342380133894!2d139.7612676!3d35.6722709!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188be467a578d3%3A0x3135fb5483b1560f!2z6YqA5bqn!5e0!3m2!1sja!2sjp!4v1720528235023!5m2!1sja!2sjp" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 予約セクション -->
+    <section class="reservation" id="reservation">
+        <div class="container">
+            <div class="section-title">
+                <h2>RESERVATION</h2>
+            </div>
+            <div class="reservation-content">
+                <div class="reservation-info">
+                    <p>当店では、より良いサービスをご提供するため、ご予約をおすすめしております。特に週末や祝日は混雑が予想されますので、お早めのご予約をお願いいたします。</p>
+                    <p>お電話、または下記フォームよりご予約いただけます。特別なご要望やアレルギー等がございましたら、お気軽にお申し付けください。</p>
+                    
+                    <div class="reservation-details">
+                        <div class="reservation-detail">
+                            <h4>営業時間</h4>
+                            <p>ランチ: 11:30 - 15:00 (L.O. 14:00)</p>
+                            <p>ディナー: 17:30 - 23:00 (L.O. 21:30)</p>
+                        </div>
+                        <div class="reservation-detail">
+                            <h4>定休日</h4>
+                            <p>毎週月曜日・第3火曜日</p>
+                            <p>※祝日の場合は営業、翌日休業</p>
+                        </div>
+                        <div class="reservation-detail">
+                            <h4>電話予約</h4>
+                            <p>03-XXXX-XXXX (11:00-21:30)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reservation-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">お名前</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">メールアドレス</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">電話番号</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date">ご来店日</label>
+                                <input type="date" id="date" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="time">ご来店時間</label>
+                                <input type="time" id="time" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="guests">人数</label>
+                                <input type="number" id="guests" class="form-control" min="1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="course">コース選択</label>
+                                <select id="course" class="form-control">
+                                    <option value="">コースを選択してください</option>
+                                    <option value="kizuna">絆コース</option>
+                                    <option value="special">シェフスペシャルコース</option>
+                                    <option value="omakase">おまかせコース</option>
+                                    <option value="alacarte">アラカルト</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">ご要望・アレルギー等</label>
+                            <textarea id="message" class="form-control" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">予約リクエスト送信</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- フッター -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-logo">NISHIAI <span>RESTAURANT</span></div>
+                <nav class="footer-nav">
+                    <ul>
+                        <li><a href="#concept">コンセプト</a></li>
+                        <li><a href="#chef">シェフ</a></li>
+                        <li><a href="#menu">メニュー</a></li>
+                        <li><a href="#gallery">ギャラリー</a></li>
+                        <li><a href="#access">アクセス</a></li>
+                        <li><a href="#reservation">ご予約</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer-middle">
+                <div class="footer-info">
+                    <h4>情報</h4>
+                    <p>〒104-0061<br>東京都中央区銀座6丁目X-X<br>銀座プレミアビル 8F</p>
+                    <p>TEL: 03-XXXX-XXXX</p>
+                </div>
+                <div class="footer-info">
+                    <h4>営業時間</h4>
+                    <p>ランチ: 11:30 - 15:00 (L.O. 14:00)<br>ディナー: 17:30 - 23:00 (L.O. 21:30)<br>定休日: 毎週月曜日・第3火曜日</p>
+                </div>
+                <div class="footer-info">
+                    <h4>フォローする</h4>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">I</a>
+                        <a href="#" class="social-icon">T</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 NISHIAI RESTAURANT All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
